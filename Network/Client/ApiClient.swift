@@ -39,10 +39,10 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     
     fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
         
-        var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
+        var request = URLRequest(url: route.baseURL,
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10.0)
-        
+      
         request.httpMethod = route.httpMethod.rawValue
         do {
             switch route.task {
@@ -113,7 +113,7 @@ enum Result<String>{
 }
 
 struct NetworkManager {
-    static let environment : NetworkEnvironment = .baseEnvironment
+
     static let CurrencyAPIKey = ""
     let router = Router<CurrencyApi>()
     
