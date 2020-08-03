@@ -23,7 +23,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         let session = URLSession.shared
         do {
             let request = try self.buildRequest(from: route)
-            NetworkLogger.log(request: request)
+            //NetworkLogger.log(request: request)
             task = session.dataTask(with: request, completionHandler: { data, response, error in
                 completion(data, response, error)
             })
@@ -133,7 +133,6 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        print(responseData)
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                         print(jsonData)
                         let apiResponse = try JSONDecoder().decode(CurrencyData.self, from: responseData)
@@ -148,6 +147,68 @@ struct NetworkManager {
             }
         }
     }
+    
+    func getTwoRates(firstRate: String , secondRate: String, completion: @escaping (_ currency: CurrencyData?,_ error: String?)->()){
+        router.request(.fromBaseToCurrent(firstRate: firstRate, secondRate: secondRate)) { data, response, error in
+            
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                        print(jsonData)
+                        let apiResponse = try JSONDecoder().decode(CurrencyData.self, from: responseData)
+                        completion(apiResponse,nil)
+                    }catch {
+                        print(error)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    func getRateHostory(firstRate: String , secondRate: String, startDate: String , endDate: String, completion: @escaping (_ currency: TwoCurrencies?,_ error: String?)->()){
+        router.request(.timePeriodRate(firstRate: firstRate, secondRate: secondRate, startDate: startDate, endDate: endDate)) { data, response, error in
+               
+               if error != nil {
+                   completion(nil, "Please check your network connection.")
+               }
+               
+               if let response = response as? HTTPURLResponse {
+                   let result = self.handleNetworkResponse(response)
+                   switch result {
+                   case .success:
+                       guard let responseData = data else {
+                           completion(nil, NetworkResponse.noData.rawValue)
+                           return
+                       }
+                       do {
+                           let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                           print(jsonData)
+                           let apiResponse = try JSONDecoder().decode(TwoCurrencies.self, from: responseData)
+                           completion(apiResponse,nil)
+                       }catch {
+                           print(error)
+                           completion(nil, NetworkResponse.unableToDecode.rawValue)
+                       }
+                   case .failure(let networkFailureError):
+                       completion(nil, networkFailureError)
+                   }
+               }
+           }
+       }
     
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {

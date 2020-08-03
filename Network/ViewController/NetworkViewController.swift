@@ -29,7 +29,13 @@ class NetworkViewController: UIViewController {
             
         }
         
+        networkManager.getTwoRates(firstRate: "EUR", secondRate: "RUB") { (currencies, error) in
+            
+        }
         
+        networkManager.getRateHostory(firstRate: "EUR", secondRate: "RUB", startDate: "2020-07-26", endDate: "2020-07-31") { (currencies, error) in
+            
+        }
     }
     
 }
