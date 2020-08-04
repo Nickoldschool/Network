@@ -87,8 +87,8 @@ extension CurrencyApi: EndPointType {
                                                       "start_at"   : startDate,
                                                       "end_at"     : endDate,])
 
-        default:
-            return .request
+//        default:
+//            return .request
         }
     }
     

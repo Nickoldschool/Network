@@ -42,6 +42,8 @@ struct TwoCurrencies: Decodable {
         self.endDate   = endDate
         self.rates  = rates
     }
+    
+    
 }
 
 extension TwoCurrencies {

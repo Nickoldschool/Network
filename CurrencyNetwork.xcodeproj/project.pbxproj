@@ -27,7 +27,7 @@
 		401201A624D6E8E1004A59DC /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		401201A924D75D09004A59DC /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		4075A2C624D5CA26009345F5 /* CurrencyEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEndPoint.swift; sourceTree = "<group>"; };
-		409B4F6D24D5C4B40040E73D /* Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Network.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		409B4F6D24D5C4B40040E73D /* CurrencyNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		409B4F7024D5C4B40040E73D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		409B4F7924D5C4B60040E73D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		409B4F7C24D5C4B60040E73D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		409B4F6424D5C4B40040E73D = {
 			isa = PBXGroup;
 			children = (
-				409B4F6F24D5C4B40040E73D /* Network */,
+				409B4F6F24D5C4B40040E73D /* CurrencyNetwork */,
 				409B4F6E24D5C4B40040E73D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,12 +82,12 @@
 		409B4F6E24D5C4B40040E73D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				409B4F6D24D5C4B40040E73D /* Network.app */,
+				409B4F6D24D5C4B40040E73D /* CurrencyNetwork.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		409B4F6F24D5C4B40040E73D /* Network */ = {
+		409B4F6F24D5C4B40040E73D /* CurrencyNetwork */ = {
 			isa = PBXGroup;
 			children = (
 				4075A2C824D63269009345F5 /* Application */,
@@ -99,7 +99,7 @@
 				409B4F8F24D5C83D0040E73D /* Encoding */,
 				409B4F7924D5C4B60040E73D /* Assets.xcassets */,
 			);
-			path = Network;
+			path = CurrencyNetwork;
 			sourceTree = "<group>";
 		};
 		409B4F8E24D5C8270040E73D /* Service */ = {
@@ -150,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		409B4F6C24D5C4B40040E73D /* Network */ = {
+		409B4F6C24D5C4B40040E73D /* CurrencyNetwork */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 409B4F8124D5C4B60040E73D /* Build configuration list for PBXNativeTarget "Network" */;
+			buildConfigurationList = 409B4F8124D5C4B60040E73D /* Build configuration list for PBXNativeTarget "CurrencyNetwork" */;
 			buildPhases = (
 				409B4F6924D5C4B40040E73D /* Sources */,
 				409B4F6A24D5C4B40040E73D /* Frameworks */,
@@ -162,9 +162,9 @@
 			);
 			dependencies = (
 			);
-			name = Network;
+			name = CurrencyNetwork;
 			productName = Network;
-			productReference = 409B4F6D24D5C4B40040E73D /* Network.app */;
+			productReference = 409B4F6D24D5C4B40040E73D /* CurrencyNetwork.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -182,7 +182,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 409B4F6824D5C4B40040E73D /* Build configuration list for PBXProject "Network" */;
+			buildConfigurationList = 409B4F6824D5C4B40040E73D /* Build configuration list for PBXProject "CurrencyNetwork" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -195,7 +195,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				409B4F6C24D5C4B40040E73D /* Network */,
+				409B4F6C24D5C4B40040E73D /* CurrencyNetwork */,
 			);
 		};
 /* End PBXProject section */
@@ -366,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D988H4JU9C;
-				INFOPLIST_FILE = Network/Application/Info.plist;
+				INFOPLIST_FILE = CurrencyNetwork/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,7 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D988H4JU9C;
-				INFOPLIST_FILE = Network/Application/Info.plist;
+				INFOPLIST_FILE = CurrencyNetwork/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -399,7 +399,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		409B4F6824D5C4B40040E73D /* Build configuration list for PBXProject "Network" */ = {
+		409B4F6824D5C4B40040E73D /* Build configuration list for PBXProject "CurrencyNetwork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				409B4F7F24D5C4B60040E73D /* Debug */,
@@ -408,7 +408,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		409B4F8124D5C4B60040E73D /* Build configuration list for PBXNativeTarget "Network" */ = {
+		409B4F8124D5C4B60040E73D /* Build configuration list for PBXNativeTarget "CurrencyNetwork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				409B4F8224D5C4B60040E73D /* Debug */,
